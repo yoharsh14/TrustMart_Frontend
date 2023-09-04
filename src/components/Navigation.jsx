@@ -12,6 +12,7 @@ export default function Navigation({ account, setAccount }) {
     });
     setAccount(await ethers.utils.getAddress(accounts[0]));
     console.log("connecting...");
+    console.log("Make sure it is connected to Sepolia testNetwork");
   };
   return (
     <nav>

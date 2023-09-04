@@ -4,6 +4,8 @@ import Section from "./components/Section";
 import Product from "./components/Products";
 import abi from "./constants/TrustMart.json";
 import addresses from "./constants/networkMapping.json";
+import 'App.css';
+// import Pinnata from "./components/Pinnata";
 import { ethers } from "ethers";
 function App() {
   const [account, setAccount] = useState(null);
@@ -41,13 +43,13 @@ function App() {
     setElectronics(electronics);
     setToys(toys);
     setShoes(shoes);
-    console.log(shoes)
   };
   useEffect(() => {
     loadBlockchainData();
   }, []);
   return (
     <div className="App">
+      <div className="notice">Connect to Sepolia Testnet</div>
       <Navigation account={account} setAccount={setAccount} />
       <h2>Best Seller Products</h2>
       {electronics && clothing && toys && shoes && (
@@ -75,6 +77,7 @@ function App() {
           togglePop={togglePop}
         />
       )}
+      {/* <Pinnata /> */}
     </div>
   );
 }
