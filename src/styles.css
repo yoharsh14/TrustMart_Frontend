@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lalezar&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+.notice {
+  text-align: center;
+  background-color: black;
+  font-weight: 500;
+  color: white;
+}
 
 * {
   margin: 0;

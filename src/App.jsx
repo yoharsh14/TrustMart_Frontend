@@ -4,7 +4,7 @@ import Section from "./components/Section";
 import Product from "./components/Products";
 import abi from "./constants/TrustMart.json";
 import addresses from "./constants/networkMapping.json";
-import 'App.css';
+// import 'app.css';
 // import Pinnata from "./components/Pinnata";
 import { ethers } from "ethers";
 function App() {
@@ -23,11 +23,11 @@ function App() {
   };
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    setProvider(provider);
     let network = await provider.getNetwork();
     network = network.chainId;
     const address = addresses[network.toString()]["TrustMart"][0];
     const contract = new ethers.Contract(address, abi, provider);
+    setProvider(provider);
     setTrustMart(contract);
     const numItems = await contract.numberOfItems();
     const items = [];
@@ -49,7 +49,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <div className="notice">Connect to Sepolia Testnet</div>
+      <div className="notice">Connect to Polygon Mumbai Testnet</div>
       <Navigation account={account} setAccount={setAccount} />
       <h2>Best Seller Products</h2>
       {electronics && clothing && toys && shoes && (
